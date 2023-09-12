@@ -15,7 +15,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            
+
             activeImage: 0,
             activePlay: true,
 
@@ -53,7 +53,6 @@ createApp({
     },
     methods: {
         next() {
-            console.log('next');
 
             this.activeImage++
             if (this.activeImage > this.slides.length - 1) {
@@ -61,7 +60,6 @@ createApp({
             }
         },
         prev() {
-            console.log('prev');
 
             this.activeImage--
             if (this.activeImage < 0) {
@@ -70,22 +68,18 @@ createApp({
         },
         play() {
             this.carouselPlay = setInterval(this.next, 3000);
-            this.activePlay = false; 
-            console.log(this); 
-        },
-
-        stop() {
-            clearInterval(this.carouselPlay);
-            this.activeImage = 0;
-            this.activePlay = true;
+            this.activePlay = false;
         },
         pause() {
             clearInterval(this.carouselPlay);
+        },
+        activeOnClick(index) {
+            this.activeImage = index;
         }
-        
+
 
     },
-    beforeMount(){
+    beforeMount() {
         this.play()
     }
 }).mount('#app')
