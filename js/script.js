@@ -15,7 +15,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-
+            
             activeImage: 0,
             activePlay: true,
 
@@ -84,5 +84,8 @@ createApp({
         }
         
 
+    },
+    beforeMount(){
+        this.play()
     }
 }).mount('#app')
